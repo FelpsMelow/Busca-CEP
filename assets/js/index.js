@@ -1,4 +1,7 @@
-function cep() {
+const form_cep = document.getElementById('form-cep')
+form_cep.addEventListener('submit', (e) => {
+
+    e.preventDefault()
 
     var numero_cep = document.getElementById("txt-cep").value;
     req_api_cep(numero_cep);
@@ -27,19 +30,13 @@ function cep() {
                 }
                 
                 let tipo_logradouro = data.logradouro;
-                console.log(data)
                 var list_tipo_logradouro = ''
 
                 for(iten in tipo_logradouro) {
                     if(tipo_logradouro[iten] !== " ") {
                       list_tipo_logradouro = (list_tipo_logradouro + tipo_logradouro[iten]);
-                    }
-                    else {
-                        break
-                    }
+                    } else { break }
                 }
-
-                console.log(cep_status);
 
                 if (cep_status !== 'erro') {
                     show_results(data, list_tipo_logradouro); // Chamar função para mostrar o resulado ao usuário "Meu json está aqui"
@@ -47,30 +44,29 @@ function cep() {
 
             })
             
-        }); //Minha requisição morreaqui --------             
+        });         
         
     }
+})
 
-    function show_results(data_json, tipo_logradouro) {
+function show_results(data_json, tipo_logradouro) {
 
-        let obj_card_cep = document.getElementById('card-cep');
-        let obj_screen_validation = document.getElementById('screen-validation');
-        obj_card_cep.style.display = 'none';
-        obj_screen_validation.style.display = 'flex';
+    let obj_card_cep = document.getElementById('form-cep');
+    let obj_screen_validation = document.getElementById('screen-validation');
+    obj_card_cep.style.display = 'none';
+    obj_screen_validation.style.display = 'flex';
 
-        let obj_h1_paracomecar = document.getElementById('left-container-h1-01');
-        let obj_h1_agr_valide = document.getElementById('left-container-h1-02');
-        obj_h1_paracomecar.style.display = 'none';
-        obj_h1_agr_valide.style.display = 'flex';
+    let obj_h1_paracomecar = document.getElementById('left-container-h1-01');
+    let obj_h1_agr_valide = document.getElementById('left-container-h1-02');
+    obj_h1_paracomecar.style.display = 'none';
+    obj_h1_agr_valide.style.display = 'flex';
 
-        document.getElementById('tipo-logradouro').value        = (tipo_logradouro);
-        document.getElementById('logradouro').value             = (data_json.logradouro);
-        document.getElementById('complemento-residencia').value = (data_json.complemento);
-        document.getElementById('bairro').value                 = (data_json.bairro);
-        document.getElementById('municipio').value              = (data_json.localidade);
-        document.getElementById('uf').value                     = (data_json.uf);
-        document.getElementById('pais').value                   = 'Brasil';
-        document.getElementById('cep').value                    = (data_json.cep);
-    }
-
+    document.getElementById('tipo-logradouro').value        = (tipo_logradouro);
+    document.getElementById('logradouro').value             = (data_json.logradouro);
+    document.getElementById('complemento-residencia').value = (data_json.complemento);
+    document.getElementById('bairro').value                 = (data_json.bairro);
+    document.getElementById('municipio').value              = (data_json.localidade);
+    document.getElementById('uf').value                     = (data_json.uf);
+    document.getElementById('pais').value                   = 'Brasil';
+    document.getElementById('cep').value                    = (data_json.cep);
 }

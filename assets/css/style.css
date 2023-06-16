@@ -226,7 +226,7 @@ li.btn-faq {
     box-shadow: 0px 10px 40px -12px #e2870fb2;
 }
 
-.card-cep {
+.form-cep {
     width: 60%;
     height: 250px;
     display: flex;
@@ -238,7 +238,7 @@ li.btn-faq {
     box-shadow: 0px 10px 40px #3165a0cc;
 }
 
-.card-cep > h2 {
+.form-cep > h2 {
     color: #ffffff;
     margin-bottom: 5PX;
 }

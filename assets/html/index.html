@@ -8,7 +8,7 @@
     <title>Busca CEP</title>
 </head>
 <body>
-    <div class="container-menu">
+    <header class="container-menu">
         <div class="logo-menu" style="color: white; width: 250px; font-size: 30px;">
             Busca CEP
         </div>
@@ -19,7 +19,7 @@
                 </a>
             </li>
         </ul>
-    </div>
+    </header>
     <div class="main-container">
         <div class=" left-container">
             <h1 class="left-container-h1" id="left-container-h1-01">Para começar, insira um CEP<br>válido no campo ao lado.</h1>
@@ -27,13 +27,13 @@
             <img src="../img/animate_cep.svg" class="left-container-animation" id="cep-animation" alt="animação da tela de login">
         </div>
         <div class="right-container">
-            <div class="card-cep" id="card-cep"> <!--Tela inicial do sistema-->
+            <form class="form-cep" id="form-cep"> <!--Tela inicial do sistema-->
                 <h2>Insira somente os números.</h2>
                 <div class="input-cep">
                     <input type="text" name="cep" id="txt-cep" placeholder="CEP">
                 </div>
-                <input class="btn-verificar-cep" type="button" id="btn-cep" value="Buscar" onclick="cep()">
-            </div>
+                <input class="btn-verificar-cep" type="submit" id="btn-buscar-cep" value="Buscar">
+            </form>
             <div class="screen-validation" id="screen-validation"><!--Aparecer quando o usuário inserir o CEP e depois mandar para o upload do arquivo-->
                 <h1>Confirme as informações abaixo.</h1>
                 <div class="container-validation">
